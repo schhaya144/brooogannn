@@ -1,6 +1,20 @@
 const express = require("express");
+const multer  = require('multer');
+const path = require('path');
+
 
 const router = express.Router();
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads/') // Uploads directory
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname)) // File name
+  }
+});
+
+const upload = multer({ storage: storage });
+
 
 const userSignUpController = require("../controller/user/useSignUp");
 const userSignInController = require("../controller/user/userSignIn");
@@ -8,11 +22,11 @@ const userDetailsController = require("../controller/user/userDetails");
 const userLogoutController = require("../controller/user/userLogout");
 const UploadProductController = require("../controller/product/uploadProduct");
 const authToken = require("../middleware/authToken");
-
 const allUsers = require("../controller/user/allusers");
+const Saveabout = require("../controller/about/saveabout");
+const Editabout = require("../controller/about/editabout");
 const updateUser = require("../controller/user/updateUser");
 const getProductDetails = require("../controller/product/getProdDetails");
-
 const getProductController = require("../controller/product/getProduct");
 const updateProductController = require("../controller/product/updateProduct");
 const getCategoryProduct = require("../controller/product/getCategoryProductOne");
@@ -62,4 +76,6 @@ router.get("/view-card-product", authToken, addToCartViewProduct);
 router.post("/update-cart-product", authToken, updateAddToCartProduct);
 router.post("/delete-cart-product", authToken, deleteAddToCartProduct);
 
+router.post('/about-imageuplode',  upload.single('image'), Saveabout);
+router.put('/about-imageuplode/:id',  upload.single('image'), Editabout);
 module.exports = router;

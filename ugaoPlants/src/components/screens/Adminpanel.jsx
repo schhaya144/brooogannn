@@ -43,8 +43,8 @@ const Adminpanel = () => {
             </Link>
           </li>
           <li>
-            <Link to={"settings"} className="nav-link link-dark">
-              Settings
+            <Link to={"uploadAboutImage"} className="nav-link link-dark">
+              About Image
             </Link>
           </li>
           <li>

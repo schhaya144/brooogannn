@@ -19,7 +19,7 @@ import AllUsers from "./components/screens/adminScreens/AllUsers";
 import UserProvider from "./components/providers/user-provider";
 // import Product from "./components/screens/adminScreens/Products";
 import Products from "./components/screens/adminScreens/Products";
-import Settings from "./components/screens/adminScreens/Settings";
+
 import ActivityLog from "./components/screens/adminScreens/ActivityLog";
 import CategoryProduct from "./components/screens/homeComponent02/CategoryProduct";
 import ProductDetails from "./components/screens/homeComponent02/ProductDetails";
@@ -36,6 +36,7 @@ import TermsAndConditions from "./components/screens/TermsAndConditions";
 import { CancelProces } from "./components/screens/CancelProces";
 import { ShipmentPolicy } from "./components/screens/ShipmentPolicy";
 import Payment from "./components/screens/Payment";
+import UploadAboutImage from "./components/screens/adminScreens/UploadAboutImage";
 
 
 function App() {
@@ -110,7 +111,7 @@ function App() {
             <Route path="/admin-panel" element={<Adminpanel />}>
               <Route path="alluser" element={<AllUsers />}></Route>
               <Route path="products" element={<Products />}></Route>
-              <Route path="settings" element={<Settings />}></Route>
+              <Route path="uploadAboutImage" element={<UploadAboutImage />}></Route>
               <Route path="activitylog" element={<ActivityLog />}></Route>
             </Route>
           </Routes>

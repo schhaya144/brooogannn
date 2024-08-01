@@ -86,6 +86,15 @@ const SummaryApi = {
   contactusDetail:{
     url : `${backendDomin}/api/contact-details`,
     method: 'get'
+  },
+ 
+  updateAboutDetails: {
+    url: `${backendDomin}/api/about-imageuplode/:id`,
+    method: "PUT"
+  },
+  aboutImage:{
+    url:`${backendDomin}/api/about-imageuplode`,
+    method:'post'
   }
 };
 
